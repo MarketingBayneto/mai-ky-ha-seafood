@@ -89,7 +89,7 @@ from relative_paths import make_relative
 make_relative(D)
 # Version CSS/JS links by content so browsers fetch updates right away.
 import hashlib
-for asset in ('style.css','app.js'):
+for asset in ('style.css','app.js','logo.png','favicon.png'):
  version=hashlib.sha1((A/asset).read_bytes()).hexdigest()[:10]
  for html_file in D.rglob('*.html'):
   text=html_file.read_text()
