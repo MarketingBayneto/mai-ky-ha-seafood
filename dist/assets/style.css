@@ -178,3 +178,23 @@ main>section.cta :is(h2,p){text-shadow:0 1px 3px #0000008c}
 /* Large bold step numbers, matching the process steps. */
 main .detail-index{font-size:2.5rem;font-weight:800;letter-spacing:0;line-height:1;margin-bottom:16px;text-shadow:0 2px 6px #00000080}
 @media(max-width:760px){main .detail-index{font-size:2.1rem}}
+/* Homepage exhibition feature: red band, faint fleet photo, photo slideshow. */
+.event-feature{position:relative;padding:60px 0;color:#fff;background:linear-gradient(90deg,#c91f32f5 0%,#bd1b2ded 50%,#a81628d9 100%),url("sunset-bg.webp") center 65%/cover no-repeat,var(--red)}
+.event-feature-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:52px;align-items:center}
+.event-copy h2{font-size:clamp(2rem,3.3vw,3rem);line-height:1.15;margin:0 0 14px;color:#fff}
+.event-copy h2:before{content:"";display:block;width:56px;height:3px;background:#fff;margin-bottom:26px}
+.event-copy p{font-size:1.1rem;color:#ffe9ec;margin:0}
+.event-copy .button.outline{margin-top:30px;background:transparent;border:1.5px solid #fff;color:#fff;display:inline-flex;align-items:center;gap:10px}
+.event-copy .button.outline:after{content:"→";font-size:1.1em}
+.event-copy .button.outline:hover{background:#fff;color:var(--red)}
+.event-slides{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;box-shadow:0 18px 40px #3d000a73;background:#7e0f1d}
+.event-slide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity 1s ease,visibility 1s}
+.event-slide.is-active{opacity:1;visibility:visible}
+.event-slide img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.event-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:4px;z-index:2}
+.event-dots button{width:30px;height:30px;border:0;background:transparent;padding:0;cursor:pointer}
+.event-dots button:before{content:"";display:block;width:9px;height:9px;margin:auto;border-radius:50%;background:#ffffffa6;box-shadow:0 1px 3px #0008;transition:transform .3s,background .3s}
+.event-dots button[aria-pressed=true]:before{background:#fff;transform:scale(1.35)}
+@media(max-width:900px){.event-feature-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
+@media(max-width:760px){.event-feature{padding:48px 0}}
+@media(prefers-reduced-motion:reduce){.event-slide{transition:none}}

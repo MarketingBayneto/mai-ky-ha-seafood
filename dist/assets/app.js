@@ -85,6 +85,19 @@ if(form){
   });
 })();
 
+// Exhibition photo slideshow on the homepage.
+(()=>{
+ const box=document.querySelector('[data-slides]');if(!box)return;
+ const slides=[...box.querySelectorAll('.event-slide')],dots=[...box.querySelectorAll('[data-slide-to]')];
+ const preference=matchMedia('(prefers-reduced-motion: reduce)');let current=0,visible=true,timer;
+ const show=i=>{current=i;slides.forEach((s,k)=>{s.classList.toggle('is-active',k===i);s.setAttribute('aria-hidden',String(k!==i));});dots.forEach((d,k)=>d.setAttribute('aria-pressed',String(k===i)));};
+ const sync=()=>{clearInterval(timer);if(!preference.matches&&visible&&!document.hidden)timer=setInterval(()=>show((current+1)%slides.length),5000);};
+ dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);sync();}));
+ document.addEventListener('visibilitychange',sync);preference.addEventListener('change',sync);
+ if('IntersectionObserver' in window)new IntersectionObserver(e=>{visible=e[0].isIntersecting;sync();},{threshold:.1}).observe(box);
+ sync();
+})();
+
 // Hero plays automatically while visible, respecting reduced-motion preferences.
 (()=>{
  const hero=document.querySelector('.hero');if(!hero)return;
