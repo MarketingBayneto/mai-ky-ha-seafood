@@ -118,3 +118,7 @@ html[lang=en] .hero-slide figcaption{letter-spacing:.06em}
 @media(max-width:370px){.footer-brand{flex-direction:column;gap:14px}}
 /* Waves scale with screen width so crests are never clipped. */
 .sea:before{height:clamp(245px,15vw,300px)}
+/* Ocean photo background for the homepage hero and capability section. */
+.hero.sea,.capability.sea{background:linear-gradient(90deg,#041a30e6 0%,#061f38b3 38%,#0a2a4a59 70%,#0a2a4a40 100%),url("ocean-bg.webp") center top/cover no-repeat,var(--navy)}
+.capability.sea{background-position:center,center 30%,center}
+@media(max-width:760px){.hero.sea,.capability.sea{background:linear-gradient(180deg,#041a30cc 0%,#061f38a6 55%,#0a2a4a73 100%),url("ocean-bg-sm.webp") center top/cover no-repeat,var(--navy)}}
