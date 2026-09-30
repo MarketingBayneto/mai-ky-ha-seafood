@@ -41,8 +41,8 @@ if(form){
  }
  function content(){
   const f=new FormData(form),selected=n=>form.elements[n].selectedOptions[0].textContent;
-  if(isEnglish)return `Dear MAI KỲ HÀ,\n\nInquiry type: ${selected('need')}\nContact name: ${f.get('name')}\nCompany: ${f.get('company')}\nEmail / phone: ${f.get('contact')}\nProduct: ${selected('product')}\nQuantity: ${f.get('quantity')||message.pending}\nDestination: ${f.get('destination')||message.pending}\n\nRequirements:\n${f.get('message')}\n\nKind regards.`;
-  return `Kính gửi MAI KỲ HÀ,\n\nNhu cầu: ${selected('need')}\nNgười liên hệ: ${f.get('name')}\nDoanh nghiệp: ${f.get('company')}\nEmail/Điện thoại: ${f.get('contact')}\nSản phẩm: ${selected('product')}\nKhối lượng: ${f.get('quantity')||message.pending}\nĐiểm giao: ${f.get('destination')||message.pending}\n\nNội dung yêu cầu:\n${f.get('message')}\n\nTrân trọng.`;
+  if(isEnglish)return `Dear MAI KỲ HÀ SEAFOOD,\n\nInquiry type: ${selected('need')}\nContact name: ${f.get('name')}\nCompany: ${f.get('company')}\nEmail / phone: ${f.get('contact')}\nProduct: ${selected('product')}\nQuantity: ${f.get('quantity')||message.pending}\nDestination: ${f.get('destination')||message.pending}\n\nRequirements:\n${f.get('message')}\n\nKind regards.`;
+  return `Kính gửi MAI KỲ HÀ SEAFOOD,\n\nNhu cầu: ${selected('need')}\nNgười liên hệ: ${f.get('name')}\nDoanh nghiệp: ${f.get('company')}\nEmail/Điện thoại: ${f.get('contact')}\nSản phẩm: ${selected('product')}\nKhối lượng: ${f.get('quantity')||message.pending}\nĐiểm giao: ${f.get('destination')||message.pending}\n\nNội dung yêu cầu:\n${f.get('message')}\n\nTrân trọng.`;
  }
  form.addEventListener('submit',e=>{
   e.preventDefault();if(!validateInquiry())return;
