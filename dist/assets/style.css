@@ -92,3 +92,7 @@ html[lang=en] .hero h1.brand-slogan-hero{font-size:clamp(2.1rem,3.8vw,3.55rem)}
 html[lang=en] .hero-slide figcaption{letter-spacing:.06em}
 @media(max-width:760px){.language-switch{gap:0;font-size:.8rem}.language-switch a{min-width:30px}.header-wrap{gap:8px}.brand small{font-size:.66rem}.brand span{font-size:1rem}.brand img{width:44px;height:44px}.brand{gap:8px}.menu-toggle{padding:8px;font-size:.88rem}html[lang=en] .hero h1.brand-slogan-hero{font-size:clamp(1.9rem,7.1vw,2.8rem)}}
 @media(max-width:370px){.header-wrap{flex-wrap:wrap}.brand{flex:1 1 62%}.language-switch{margin-left:0}.menu-toggle{margin-left:auto}.language-switch a{min-width:36px}}
+/* Capability section waves drift like the homepage hero. */
+.capability.sea:before{inset-inline:-12%;animation:ocean-drift 12s ease-in-out infinite alternate;will-change:transform}
+@media(prefers-reduced-motion:reduce){.capability.sea:before{animation:none}}
+@media print{.capability.sea:before{animation:none}}
