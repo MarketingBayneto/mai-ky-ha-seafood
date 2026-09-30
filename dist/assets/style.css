@@ -179,7 +179,7 @@ main>section.cta :is(h2,p){text-shadow:0 1px 3px #0000008c}
 main .detail-index{font-size:2.5rem;font-weight:800;letter-spacing:0;line-height:1;margin-bottom:16px;text-shadow:0 2px 6px #00000080}
 @media(max-width:760px){main .detail-index{font-size:2.1rem}}
 /* Homepage exhibition feature: red band, faint fleet photo, photo slideshow. */
-.event-feature{position:relative;padding:84px 0;color:#fff;background:linear-gradient(180deg,var(--navy) 0,#05254000 90px,#05254000 calc(100% - 90px),var(--navy) 100%),linear-gradient(90deg,#c91f32c7 0%,#bd1b2da6 50%,#a8162880 100%),url("sunset-bg.webp") center 65%/cover no-repeat,var(--red)}
+.event-feature{position:relative;padding:84px 0;color:#fff;background:linear-gradient(180deg,var(--navy) 0,#05254000 90px,#05254000 calc(100% - 90px),var(--navy) 100%),linear-gradient(90deg,#c91f32c7 0%,#bd1b2da6 50%,#a8162880 100%),url("harbor-bg.webp") center 45%/cover no-repeat,var(--red)}
 .event-feature-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:52px;align-items:center}
 .event-copy h2{font-size:clamp(2rem,3.3vw,3rem);line-height:1.15;margin:0 0 14px;color:#fff}
 .event-copy h2:before{content:"";display:block;width:56px;height:3px;background:#fff;margin-bottom:26px}
