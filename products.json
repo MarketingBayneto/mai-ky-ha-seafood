@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "ca-chem",
+    "name": "Cá chẽm",
+    "en": "Barramundi",
+    "group": "khac",
+    "images": [
+      "/assets/ca-chem-0.webp",
+      "/assets/ca-chem-1.webp",
+      "/assets/ca-chem-2.webp"
+    ]
+  },
+  {
+    "slug": "muc-xa-den",
+    "name": "Mực xà đen",
+    "en": "Black Squid",
+    "group": "muc",
+    "images": [
+      "/assets/muc-xa-den-0.webp",
+      "/assets/muc-xa-den-1.webp",
+      "/assets/muc-xa-den-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-ngu-o",
+    "name": "Cá ngừ ồ",
+    "en": "Bullet Tuna",
+    "group": "ngu",
+    "images": [
+      "/assets/ca-ngu-o-0.webp",
+      "/assets/ca-ngu-o-1.webp",
+      "/assets/ca-ngu-o-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-chim-den",
+    "name": "Cá chim đen",
+    "en": "Black Pomfret",
+    "group": "khac",
+    "images": [
+      "/assets/ca-chim-den-0.webp",
+      "/assets/ca-chim-den-1.webp",
+      "/assets/ca-chim-den-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-nuc-hgt",
+    "name": "Cá nục gai cắt đầu",
+    "en": "HGT",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-nuc-hgt-0.webp",
+      "/assets/ca-nuc-hgt-1.webp",
+      "/assets/ca-nuc-hgt-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-liet-chi-vang",
+    "name": "Cá liệt chỉ vàng",
+    "en": "Striped Pony Fish",
+    "group": "khac",
+    "images": [
+      "/assets/ca-liet-chi-vang-0.webp",
+      "/assets/ca-liet-chi-vang-1.webp",
+      "/assets/ca-liet-chi-vang-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-banh-lai-trang",
+    "name": "Cá bánh lái trắng",
+    "en": "Moon Fish",
+    "group": "khac",
+    "images": [
+      "/assets/ca-banh-lai-trang-0.webp",
+      "/assets/ca-banh-lai-trang-1.webp",
+      "/assets/ca-banh-lai-trang-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-trao-mat-to",
+    "name": "Cá tráo mắt to",
+    "en": "Bigeye Scad",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-trao-mat-to-0.webp",
+      "/assets/ca-trao-mat-to-1.webp",
+      "/assets/ca-trao-mat-to-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-song",
+    "name": "Cá sòng",
+    "en": "Horse Mackerel",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-song-0.webp",
+      "/assets/ca-song-1.webp",
+      "/assets/ca-song-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-bac-ma",
+    "name": "Cá bạc má",
+    "en": "Indian Mackerel",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-bac-ma-0.webp",
+      "/assets/ca-bac-ma-1.webp",
+      "/assets/ca-bac-ma-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-nuc-suon",
+    "name": "Cá nục suôn / cá nục dài",
+    "en": "Layang Scad",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-nuc-suon-0.webp",
+      "/assets/ca-nuc-suon-1.webp",
+      "/assets/ca-nuc-suon-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-nuc-duoi-do",
+    "name": "Cá nục đuôi đỏ",
+    "en": "Redtail Scad",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-nuc-duoi-do-0.webp",
+      "/assets/ca-nuc-duoi-do-1.webp",
+      "/assets/ca-nuc-duoi-do-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-nuc-tron",
+    "name": "Cá nục tròn / cá nục gai",
+    "en": "Round Scad",
+    "group": "nuc",
+    "images": [
+      "/assets/ca-nuc-tron-0.webp",
+      "/assets/ca-nuc-tron-1.webp",
+      "/assets/ca-nuc-tron-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-ro-phi",
+    "name": "Cá rô phi",
+    "en": "Tilapia",
+    "group": "khac",
+    "images": [
+      "/assets/ca-ro-phi-0.webp",
+      "/assets/ca-ro-phi-1.webp",
+      "/assets/ca-ro-phi-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-ngan-duoi-vang",
+    "name": "Cá ngân đuôi vàng",
+    "en": "Yellow Tail",
+    "group": "khac",
+    "images": [
+      "/assets/ca-ngan-duoi-vang-0.webp",
+      "/assets/ca-ngan-duoi-vang-1.webp",
+      "/assets/ca-ngan-duoi-vang-2.webp"
+    ]
+  },
+  {
+    "slug": "ca-ngu-vay-vang",
+    "name": "Cá ngừ vây vàng",
+    "en": "Yellowfin Tuna",
+    "group": "ngu",
+    "images": [
+      "/assets/ca-ngu-vay-vang-0.webp",
+      "/assets/ca-ngu-vay-vang-1.webp",
+      "/assets/ca-ngu-vay-vang-2.webp"
+    ]
+  }
+]

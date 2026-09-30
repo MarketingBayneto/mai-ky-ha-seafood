@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const field=value=>({value,disabled:true,selectedOptions:[{textContent:value}],options:[{value}]});
+const elements={name:field('  Đối tác  '),company:field('  Công ty A  '),contact:field('  0900000000  '),message:field('  Cần báo giá  '),product:field('ca-bac-ma'),need:field('mua'),quantity:field('1 tấn'),destination:field('Đà Nẵng')};
+const required=['name','company','contact','message'].map(k=>elements[k]);const handlers={},copy={},submit={disabled:true},status={};let selected=false;
+const textarea={value:'',focus(){},select(){selected=true}};const fallback={hidden:true,querySelector:()=>textarea};
+const form={elements,querySelectorAll:s=>s==='button[disabled]'?[submit,copy]:required,reportValidity:()=>required.every(f=>f.value.length>0),addEventListener:(k,f)=>handlers[k]=f};copy.disabled=true;copy.addEventListener=(k,f)=>copy[k]=f;
+const document={documentElement:{lang:process.env.TEST_LANGUAGE||'vi'},querySelector:s=>({'#inquiry':form,'#form-status':status,'#copy-request':copy,'#manual-copy':fallback}[s])};
+const window={location:{href:''}};
+const full=fs.readFileSync('dist/assets/app.js','utf8'),code=full.slice(full.indexOf('const form='),full.indexOf('// Reveal below-the-fold'));
+vm.runInNewContext(code,{document,window,location:{search:'?san-pham=ca-bac-ma&nhu-cau=mua'},URLSearchParams,encodeURIComponent,navigator:{},FormData:class{get(k){return elements[k].value}}});
+assert.equal(submit.disabled,false);assert.equal(copy.disabled,false);
+elements.message.value='   ';handlers.submit({preventDefault(){}});assert.equal(window.location.href,'','whitespace-only requests must be blocked');
+elements.message.value=' Cần cá bạc má ';handlers.submit({preventDefault(){}});assert(window.location.href.startsWith('mailto:maikyhaseafood01@gmail.com?'));assert(decodeURIComponent(window.location.href).includes('Cần cá bạc má'));assert.equal(elements.name.value,'Đối tác');
+(async()=>{await copy.click();assert.equal(fallback.hidden,false);assert(selected);assert(textarea.value.includes('Cần cá bạc má'));if(process.env.TEST_LANGUAGE==='en'){assert(textarea.value.startsWith('Dear MAI KỲ HÀ'));assert(status.textContent.startsWith('Select and copy'));assert(decodeURIComponent(window.location.href).includes('Seafood inquiry'));}else{assert(textarea.value.startsWith('Kính gửi'));}console.log('PASS: query prefill, trimmed required fields, email generation and clipboard fallback.');})();
