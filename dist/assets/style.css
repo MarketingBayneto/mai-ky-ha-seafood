@@ -210,3 +210,5 @@ main>section.real-note-section{padding-top:70px;padding-bottom:70px}
 .real-note p{margin:0;color:#35566a}
 .real-note-icon{flex:0 0 52px;height:52px;display:grid;place-items:center;border-radius:50%;background:var(--red);color:#fff;font-size:1.5rem;font-weight:800}
 @media(max-width:760px){.real-note{flex-direction:column;padding:24px}.real-badge{font-size:.74rem;letter-spacing:.04em}}
+.real-badge{font-family:Arial,Helvetica,sans-serif;font-weight:700;letter-spacing:.03em;font-size:.9rem}
+@media(max-width:760px){.real-badge{font-size:.78rem;letter-spacing:.02em}}
