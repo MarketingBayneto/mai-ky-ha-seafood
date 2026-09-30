@@ -1,9 +1,9 @@
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import urlsplit,parse_qs
+from urllib.parse import urlsplit,parse_qs,urljoin
 import sys,re,json
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from english import ROUTES
+from english import ROUTES,ORIGIN
 D=Path('dist')
 class Page(HTMLParser):
  def __init__(self):super().__init__();self.lang=None;self.links=[];self.ids=[];self.h1=0;self.text=[];self.labels=[];self.options=[];self.alternates={};self.meta='';self.disabled=False
@@ -12,16 +12,18 @@ class Page(HTMLParser):
   if t=='html':self.lang=a['lang']
   if t=='h1':self.h1+=1
   if 'id' in a:self.ids.append(a['id'])
-  if t=='a':self.links.append(a)
+  if t=='a':
+   if a.get('href') and not urlsplit(a['href']).scheme:a['href']=urljoin(self.route,a['href'])
+   self.links.append(a)
   if t=='option':self.options.append(a.get('value'))
   if t=='meta' and a.get('name')=='description':self.meta=a['content']
-  if t=='link' and a.get('rel')=='alternate':self.alternates[a['hreflang']]=urlsplit(a['href']).path
+  if t=='link' and a.get('rel')=='alternate':self.alternates[a['hreflang']]=a['href'][len(ORIGIN):] if a['href'].startswith(ORIGIN) else a['href']
   for k in ['alt','aria-label','placeholder','data-caption']:
    if a.get(k):self.text.append(a[k])
  def handle_data(self,d):self.text.append(d)
 
 def read(route):
- p=Page();p.feed((D/route.lstrip('/')/'index.html').read_text());return p
+ p=Page();p.route=route;p.feed((D/route.lstrip('/')/'index.html').read_text());return p
 products={p['slug'] for p in json.loads(Path('products.json').read_text())}
 for vi,en in ROUTES.items():
  for lang,route in [('vi',vi),('en',en)]:

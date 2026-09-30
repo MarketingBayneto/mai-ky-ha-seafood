@@ -1,6 +1,6 @@
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import urlparse
+from urllib.parse import urlparse,urljoin
 D=Path(__file__).parent/'dist';errors=[];pages=list(D.rglob('*.html'))
 class Check(HTMLParser):
  def handle_starttag(self,tag,attrs):
@@ -9,11 +9,13 @@ class Check(HTMLParser):
   for k in ('src','href'):
    u=a.get(k,'');q=urlparse(u)
    if not u or q.scheme or u.startswith('#'):continue
+   if u.startswith('/'):errors.append(f'{self.path}: root-absolute link {u}')
+   q=urlparse(urljoin(self.url,u))
    p=D/q.path.lstrip('/')
    if q.path.endswith('/'):p=p/'index.html'
    if not p.exists():errors.append(f'{self.path}: missing {u}')
 for path in pages:
- c=Check();c.path=path;c.feed(path.read_text())
+ c=Check();c.path=path;rel=path.parent.relative_to(D).as_posix();c.url='/' if rel=='.' else '/'+rel+'/';c.feed(path.read_text())
 assert not errors,'\n'.join(errors)
 assert len(pages)==56
 print(f'Checked {len(pages)} pages: all local links and images resolve; image descriptions present.')
