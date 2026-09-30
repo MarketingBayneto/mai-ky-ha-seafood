@@ -175,3 +175,6 @@ main>section.capability.sea:after{content:"";position:absolute;inset:0;z-index:0
 main>section.cta{padding:84px 0;background:linear-gradient(180deg,var(--navy) 0,#05254000 70px,#05254000 calc(100% - 70px),var(--navy) 100%),linear-gradient(90deg,#041a30d9 0%,#06203ab3 50%,#0a2a4a73 100%),url("school-bg.webp") center 58%/cover no-repeat,var(--navy)}
 main>section.cta :is(h2,p){text-shadow:0 1px 3px #0000008c}
 @media(max-width:760px){main>section.cta{padding:64px 0;background:linear-gradient(180deg,var(--navy) 0,#05254000 50px,#05254000 calc(100% - 50px),var(--navy) 100%),linear-gradient(180deg,#041a30cc,#06203aa6),url("school-bg-sm.webp") center 58%/cover no-repeat,var(--navy)}}
+/* Large bold step numbers, matching the process steps. */
+main .detail-index{font-size:2.5rem;font-weight:800;letter-spacing:0;line-height:1;margin-bottom:16px;text-shadow:0 2px 6px #00000080}
+@media(max-width:760px){main .detail-index{font-size:2.1rem}}
