@@ -87,4 +87,11 @@ from english import build_languages
 build_languages(D)
 from relative_paths import make_relative
 make_relative(D)
+# Version CSS/JS links by content so browsers fetch updates right away.
+import hashlib
+for asset in ('style.css','app.js'):
+ version=hashlib.sha1((A/asset).read_bytes()).hexdigest()[:10]
+ for html_file in D.rglob('*.html'):
+  text=html_file.read_text()
+  html_file.write_text(re.sub(r'(assets/'+re.escape(asset)+r')(\?v=[0-9a-f]+)?"',r'\1?v='+version+'"',text))
 print('Generated',len(list(D.rglob('index.html'))),'pages')
