@@ -148,3 +148,7 @@ main .editorial-note{background:#d9eef5f0}
 main>:is(section,article).section:not(.sea) :is(.panel,form,.article-contents,.editorial-note) .eyebrow{color:var(--red)}
 main>:is(section,article).section:not(.sea) :is(.panel,form,.article-contents,.editorial-note) :is(.text-link,a.text-link){color:#b3172a}
 main .article-card:hover{background:#ffffff}
+/* Sunset fishing-fleet photo for selected sections (partnership, quality, FAQ). */
+main>section.section.sunset:not(.sea):not(.deep-section){background:linear-gradient(90deg,#041a30dc 0%,#051c34b0 45%,#0a2a4a6b 100%),url("sunset-bg.webp") center 42%/cover no-repeat,var(--navy)}
+@media(max-width:760px){main>section.section.sunset:not(.sea):not(.deep-section){background:linear-gradient(180deg,#041a30d9,#051c34c2 60%,#0a2a4a99),url("sunset-bg-sm.webp") center/cover no-repeat,var(--navy)}}
+main>section.section.sunset :is(h2,h3,p,summary){text-shadow:0 1px 3px #000000a6}
