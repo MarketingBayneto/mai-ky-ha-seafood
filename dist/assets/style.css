@@ -255,3 +255,10 @@ html{scroll-padding-top:130px}
 header.is-scrolled{background:#052540f2;box-shadow:0 6px 20px #0006;backdrop-filter:blur(8px)}
 @media(max-width:1420px){header #navigation.open{max-height:calc(100vh - 100px);overflow-y:auto}}
 @media(max-width:760px){html{scroll-padding-top:100px}}
+/* Red buttons: metallic finish with a light sweep when they first come into view. */
+.button:not(.secondary):not(.outline){position:relative;overflow:hidden;isolation:isolate;background-image:linear-gradient(180deg,#ffffff38 0%,#ffffff0d 45%,#00000014 55%,#00000033 100%);box-shadow:inset 0 1px 0 #ffffff59,inset 0 -2px 0 #0000002e,0 4px 12px #6d0a1659}
+.button:not(.secondary):not(.outline):before{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:45%;z-index:-1;pointer-events:none;background:linear-gradient(105deg,#fff0 0%,#ffffff26 30%,#ffffffbf 50%,#ffffff26 70%,#fff0 100%);transform:skewX(-20deg) translateX(0);opacity:0}
+.button.shine:not(.secondary):not(.outline):before{animation:metal-shine 1.1s cubic-bezier(.4,0,.2,1) .15s 1 both}
+.button:not(.secondary):not(.outline):is(:hover,:focus-visible):before{animation:metal-shine .8s cubic-bezier(.4,0,.2,1) 1 both}
+@keyframes metal-shine{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(420%)}}
+@media(prefers-reduced-motion:reduce){.button:before{animation:none!important}}
