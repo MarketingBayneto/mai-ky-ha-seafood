@@ -10,6 +10,6 @@
   sessionStorage.setItem('mkh-intro','seen');
   if(sessionStorage.getItem('mkh-intro')!=='seen')return;
   d.classList.add('intro-on','intro-hold');
-  setTimeout(function(){d.classList.remove('intro-on','intro-hold');},3200);
+  setTimeout(function(){d.classList.remove('intro-on','intro-hold');},5600);
  }catch(e){}
 })();
