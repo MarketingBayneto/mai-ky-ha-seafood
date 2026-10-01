@@ -50,6 +50,8 @@ def page(path,title,body,desc=None):
     return tag[:-1]+f' width="{w}" height="{h}">'
   return tag
  h=re.sub(r'<img\b[^>]*>',dimensions,h)
+ # Product images: wrap for hover zoom, red frame and a "view details" button.
+ h=re.sub(r'(<a class="(?:product-card|mosaic-item)[^"]*"[^>]*>)(<img\b[^>]*>)',r'\1<span class="card-media">\2<em class="view-detail">Xem chi tiết</em></span>',h)
  target=D/path.strip('/')/'index.html' if path!='/' else D/'index.html';target.parent.mkdir(parents=True,exist_ok=True);target.write_text(h)
 def intro(kicker,title,description):return f'<section class="page-intro sea"><div class="wrap"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{description}</p></div></section>'
 def cta():return '<section class="cta"><div class="wrap"><div><p class="eyebrow">KẾT NỐI ĐẠI DƯƠNG, PHỦ SÓNG TOÀN CẦU</p><h2>Cùng kết nối cơ hội thủy sản</h2><p>Chia sẻ mặt hàng, quy cách và thị trường bạn hướng đến để cùng trao đổi phương án hợp tác.</p></div>'+btn('/lien-he/','Gửi yêu cầu thủy sản')+'</div></section>'

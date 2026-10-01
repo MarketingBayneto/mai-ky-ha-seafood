@@ -212,3 +212,18 @@ main>section.real-note-section{padding-top:70px;padding-bottom:70px}
 @media(max-width:760px){.real-note{flex-direction:column;padding:24px}.real-badge{font-size:.74rem;letter-spacing:.04em}}
 .real-badge{font-family:Arial,Helvetica,sans-serif;font-weight:700;letter-spacing:.03em;font-size:.9rem}
 @media(max-width:760px){.real-badge{font-size:.78rem;letter-spacing:.02em}}
+/* Product image hover: gentle zoom, red frame, "view details" button. */
+.card-media{position:relative;display:block;overflow:hidden;line-height:0}
+.mosaic-item .card-media{position:absolute;inset:0}
+.mosaic-item .card-media img{height:100%;width:100%}
+.card-media img{transition:transform .45s ease}
+.card-media:after{content:"";position:absolute;inset:0;border:3px solid transparent;transition:border-color .3s,background .3s;pointer-events:none}
+.card-media .view-detail{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-30%);opacity:0;padding:11px 22px;border-radius:5px;background:var(--red);color:#fff;font-style:normal;font-weight:700;font-size:.92rem;line-height:1.2;white-space:nowrap;box-shadow:0 8px 20px #0007;transition:opacity .3s,transform .3s;pointer-events:none}
+:is(.product-card,.mosaic-item):is(:hover,:focus-visible) .card-media img{transform:scale(1.07)}
+:is(.product-card,.mosaic-item):is(:hover,:focus-visible) .card-media:after{border-color:var(--red);background:#05254040}
+:is(.product-card,.mosaic-item):is(:hover,:focus-visible) .view-detail{opacity:1;transform:translate(-50%,-50%)}
+.mosaic-item:hover img{transform:none}
+.mosaic-item:hover .card-media img{transform:scale(1.07)}
+.mosaic-item>span{z-index:3}
+@media(hover:none){.card-media .view-detail{display:none}}
+@media(prefers-reduced-motion:reduce){.card-media img,.card-media .view-detail{transition:none}}
