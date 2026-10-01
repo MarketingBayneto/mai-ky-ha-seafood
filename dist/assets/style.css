@@ -269,3 +269,8 @@ header.is-scrolled{background:#052540f2;box-shadow:0 6px 20px #0006;backdrop-fil
 .footer-contact a:is(:hover,:focus-visible) .contact-icon:before{animation:metal-shine-icon .8s cubic-bezier(.4,0,.2,1) 1 both}
 @keyframes metal-shine-icon{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(330%)}}
 @media(prefers-reduced-motion:reduce){.footer-contact .contact-icon:before{animation:none!important}}
+/* Menu items bounce up gently on hover. */
+#navigation a:not(.button){display:inline-block;transition:color .2s}
+#navigation a:not(.button):is(:hover,:focus-visible){color:var(--red-bright);text-decoration:none;animation:nav-bounce .5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes nav-bounce{0%{transform:translateY(0)}45%{transform:translateY(-5px)}70%{transform:translateY(-2px)}100%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){#navigation a:not(.button):is(:hover,:focus-visible){animation:none}}
