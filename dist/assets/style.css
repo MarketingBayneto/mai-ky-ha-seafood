@@ -227,3 +227,19 @@ main>section.real-note-section{padding-top:70px;padding-bottom:70px}
 .mosaic-item>span{z-index:3}
 @media(hover:none){.card-media .view-detail{display:none}}
 @media(prefers-reduced-motion:reduce){.card-media img,.card-media .view-detail{transition:none}}
+/* Contact buttons: brighter red on hover, arrow slides right. */
+:root{--red-bright:#e8293e}
+.button:not(.secondary):not(.outline){gap:10px;transition:background .25s,border-color .25s,box-shadow .25s,transform .25s}
+.button:not(.secondary):not(.outline):after{content:"→";display:inline-block;font-size:1.1em;line-height:1;transition:transform .25s}
+.button:not(.secondary):not(.outline):is(:hover,:focus-visible){background:var(--red-bright);border-color:var(--red-bright);box-shadow:0 8px 22px #e8293e59}
+.button:is(:hover,:focus-visible):after{transform:translateX(5px)}
+.event-copy .button.outline:after{display:inline-block;transition:transform .25s}
+.button:disabled:after{transform:none}
+/* Phone / email / address icons follow the same red. */
+.contact-icon{transition:background .25s,transform .25s,box-shadow .25s}
+:is(a,.contact-method):is(:hover,:focus-visible) .contact-icon{background:var(--red-bright)!important;transform:scale(1.08);box-shadow:0 6px 16px #e8293e66}
+.footer-links svg{transition:color .25s,transform .25s}
+.footer-links a:is(:hover,:focus-visible) svg{color:var(--red-bright);transform:translateX(3px)}
+a:is(:hover,:focus-visible) .contact-icon~span,.footer-links a:is(:hover,:focus-visible) span{color:#fff}
+main .contact-method:is(:hover,:focus-visible) h3{color:var(--red-bright)}
+@media(prefers-reduced-motion:reduce){.button:after,.contact-icon,.footer-links svg{transition:none}}
