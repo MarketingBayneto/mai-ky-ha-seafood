@@ -279,7 +279,7 @@ html{scrollbar-gutter:stable}
 html.intro-on,html.intro-on body{overflow:hidden}
 html.intro-on:not(.intro-built) body:before{content:"";position:fixed;inset:0;z-index:9998;background:#061F35}
 html.intro-hold .hero.motion-ready .hero-copy>*{animation-play-state:paused}
-.intro{--t:2;position:fixed;inset:0;z-index:9999;pointer-events:auto;will-change:transform;animation:intro-exit calc(.55s*var(--t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--t)) both}
+.intro{--t:2.667;position:fixed;inset:0;z-index:9999;pointer-events:auto;will-change:transform;animation:intro-exit calc(.55s*var(--t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--t)) both}
 .intro-art{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 18%,#0b3d5e 0%,#061F35 62%)}
 .intro-art:before{content:"";position:absolute;left:50%;top:-30%;width:110vmax;height:80vmax;transform:translateX(-50%);background:radial-gradient(closest-side,#7fd1ee2e,#7fd1ee00);pointer-events:none}
 .intro-edge{position:absolute;left:0;right:0;top:calc(100% - 1px);height:clamp(60px,9vw,120px);line-height:0}
