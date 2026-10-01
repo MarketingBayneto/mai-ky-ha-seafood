@@ -249,3 +249,9 @@ main .contact-method:is(:hover,:focus-visible) h3{color:var(--red-bright)}
 @keyframes wave-layers{from{background-position:0 0,0 0,0 0}to{background-position:-1120px 0,-420px 0,-320px 0}}
 @media(prefers-reduced-motion:reduce){:is(main>:is(section,article):not(.page-intro):not(.hero):not(.capability)+:is(section.section:not(.sea):not(.deep-section),section.cta,section.event-feature),main>section.capability+section.event-feature):before{animation:none}}
 main>section.cta>.wrap,main>section.event-feature>.wrap{position:relative;z-index:2}
+/* Header stays pinned to the top while scrolling. */
+header{position:sticky;top:0;z-index:50;transition:box-shadow .3s,background .3s}
+html{scroll-padding-top:130px}
+header.is-scrolled{background:#052540f2;box-shadow:0 6px 20px #0006;backdrop-filter:blur(8px)}
+@media(max-width:1420px){header #navigation.open{max-height:calc(100vh - 100px);overflow-y:auto}}
+@media(max-width:760px){html{scroll-padding-top:100px}}

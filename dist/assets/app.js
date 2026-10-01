@@ -1,4 +1,6 @@
 document.documentElement.classList.add('js');
+// Shadow on the pinned header once the page scrolls.
+(()=>{const h=document.querySelector('header');if(!h)return;const f=()=>h.classList.toggle('is-scrolled',scrollY>8);addEventListener('scroll',f,{passive:true});f();})();
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#navigation');toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(toggle?.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');nav?.classList.remove('open');toggle.focus();}}});
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('[data-group]').forEach(card=>card.hidden=button.dataset.filter!=='all'&&card.dataset.group!==button.dataset.filter)}));
 const dialog=document.querySelector('.lightbox');
