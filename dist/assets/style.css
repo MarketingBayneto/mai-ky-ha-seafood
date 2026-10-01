@@ -279,7 +279,7 @@ html{scrollbar-gutter:stable}
 html.intro-on,html.intro-on body{overflow:hidden}
 html.intro-on:not(.intro-built) body:before{content:"";position:fixed;inset:0;z-index:9998;background:#061F35}
 html.intro-hold .hero.motion-ready .hero-copy>*{animation-play-state:paused}
-.intro{--t:2.667;position:fixed;inset:0;z-index:9999;pointer-events:auto;will-change:transform;animation:intro-exit calc(.55s*var(--t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--t)) both}
+.intro{--t:var(--intro-t);position:fixed;inset:0;z-index:9999;pointer-events:auto;will-change:transform;animation:intro-exit calc(.55s*var(--t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--t)) both}
 .intro-art{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 18%,#0b3d5e 0%,#061F35 62%)}
 .intro-art:before{content:"";position:absolute;left:50%;top:-30%;width:110vmax;height:80vmax;transform:translateX(-50%);background:radial-gradient(closest-side,#7fd1ee2e,#7fd1ee00);pointer-events:none}
 .intro-edge{position:absolute;left:0;right:0;top:calc(100% - 1px);height:clamp(60px,9vw,120px);line-height:0}
@@ -299,5 +299,10 @@ html.intro-hold .hero.motion-ready .hero-copy>*{animation-play-state:paused}
 @keyframes intro-logo{0%{opacity:0;transform:translateY(12px)}55%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(-2px)}100%{opacity:0;transform:translateY(-6px)}}
 @keyframes intro-exit{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,calc(-100% - clamp(60px,9vw,120px) - 4px),0)}}
 @keyframes intro-skip{to{opacity:0}}
-@media(max-width:760px){.intro{--t:1.667}.intro-logo{width:min(46vw,190px)}.intro-wave.w3{display:none}.intro-wave.w1{height:50%}.intro-wave.w2{height:36%}}
+@media(max-width:760px){:root{--intro-t:1.667}.intro-logo{width:min(46vw,190px)}.intro-wave.w3{display:none}.intro-wave.w1{height:50%}.intro-wave.w2{height:36%}}
 @media(prefers-reduced-motion:reduce){.intro{display:none}}
+/* Intro: the homepage rises with the lifting wave, as if pulled up by it. */
+:root{--intro-t:2.667}
+@media(max-width:760px){:root{--intro-t:1.667}}
+html.intro-built body>:not(.intro):not(.skip):not(dialog){animation:intro-page-rise calc(.55s*var(--intro-t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--intro-t)) both}
+@keyframes intro-page-rise{from{transform:translate3d(0,100vh,0)}to{transform:none}}
