@@ -262,3 +262,10 @@ header.is-scrolled{background:#052540f2;box-shadow:0 6px 20px #0006;backdrop-fil
 .button:not(.secondary):not(.outline):is(:hover,:focus-visible):before{animation:metal-shine .8s cubic-bezier(.4,0,.2,1) 1 both}
 @keyframes metal-shine{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(420%)}}
 @media(prefers-reduced-motion:reduce){.button:before{animation:none!important}}
+/* Footer contact icons: same metallic finish and light sweep as the red buttons. */
+.footer-contact .contact-icon{position:relative;overflow:hidden;isolation:isolate;background-image:linear-gradient(180deg,#ffffff38 0%,#ffffff0d 45%,#00000014 55%,#00000033 100%);box-shadow:inset 0 1px 0 #ffffff59,inset 0 -2px 0 #0000002e,0 4px 12px #6d0a1659}
+.footer-contact .contact-icon:before{content:"";position:absolute;top:-20%;bottom:-20%;left:-90%;width:70%;z-index:-1;pointer-events:none;background:linear-gradient(105deg,#fff0 0%,#ffffff26 30%,#ffffffbf 50%,#ffffff26 70%,#fff0 100%);transform:skewX(-20deg);opacity:0}
+.footer-contact .contact-icon.shine:before{animation:metal-shine-icon 1s cubic-bezier(.4,0,.2,1) .15s 1 both}
+.footer-contact a:is(:hover,:focus-visible) .contact-icon:before{animation:metal-shine-icon .8s cubic-bezier(.4,0,.2,1) 1 both}
+@keyframes metal-shine-icon{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(330%)}}
+@media(prefers-reduced-motion:reduce){.footer-contact .contact-icon:before{animation:none!important}}

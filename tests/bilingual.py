@@ -35,7 +35,7 @@ for vi,en in ROUTES.items():
    u=urlsplit(a['href'])
    if a['href'].startswith('#'):assert u.fragment in p.ids
    if 'san-pham' in parse_qs(u.query):assert parse_qs(u.query)['san-pham'][0] in products
-   if lang=='en' and u.path.startswith('/') and 'data-language-switch' not in a:assert u.path.startswith('/en/'),(route,u.path)
+   if lang=='en' and not u.netloc and u.path.startswith('/') and 'data-language-switch' not in a:assert u.path.startswith('/en/'),(route,u.path)
   if lang=='en':
    for text in p.text+[p.meta]:
     text=text.replace('MAI KỲ HÀ','').replace('Tiếng Việt','').replace('×','')

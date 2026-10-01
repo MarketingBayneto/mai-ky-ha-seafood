@@ -102,7 +102,7 @@ if(form){
 
 // Metallic light sweep on red buttons as they first appear.
 (()=>{
- const buttons=[...document.querySelectorAll('.button:not(.secondary):not(.outline)')];
+ const buttons=[...document.querySelectorAll('.button:not(.secondary):not(.outline),.footer-contact .contact-icon')];
  if(!buttons.length)return;
  if(!('IntersectionObserver' in window)){buttons.forEach(b=>b.classList.add('shine'));return;}
  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shine');io.unobserve(e.target);}}),{threshold:.6});
