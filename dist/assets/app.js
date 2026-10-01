@@ -1,4 +1,49 @@
 document.documentElement.classList.add('js');
+// Homepage intro "Sóng mở màn": built only when intro-gate.js armed it.
+(()=>{
+ const root=document.documentElement;
+ if(!root.classList.contains('intro-on'))return;
+ const release=()=>root.classList.remove('intro-hold');
+ const clear=()=>{root.classList.remove('intro-on','intro-hold','intro-built');};
+ try{
+  const en=root.lang==='en';
+  const logo=document.querySelector('header .brand img');
+  const wave=(fill,d,stroke)=>`<svg viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="${fill}" d="${d} V320 H0 Z"/>${stroke?`<path fill="none" stroke="${stroke}" stroke-width="2" stroke-opacity=".55" vector-effect="non-scaling-stroke" d="${d}"/>`:''}</svg>`;
+  const el=document.createElement('div');
+  el.className='intro';
+  el.innerHTML=`<div class="intro-art" aria-hidden="true">
+   <div class="intro-wave w1">${wave('#075579','M0 120 C 180 60, 330 40, 520 92 S 860 180, 1040 118 S 1310 40, 1440 86',  '#9fdcf0')}</div>
+   <div class="intro-wave w2">${wave('#0a4468','M0 96 C 220 150, 400 170, 600 112 S 940 30, 1160 96 S 1380 150, 1440 132','#5fb3d3')}</div>
+   <div class="intro-wave w3">${wave('#061F35','M0 70 C 160 30, 360 20, 560 64 S 900 140, 1120 82 S 1360 30, 1440 52',  '#2f86ad')}</div>
+   ${logo?`<figure class="intro-logo"><img src="${logo.getAttribute('src')}" alt="" decoding="async"></figure>`:''}
+   <div class="intro-edge"><svg viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="#061F35" d="M0 0 H1440 V120 C 1250 210, 1060 250, 860 196 S 500 96, 300 152 S 70 228, 0 182 Z"/><path fill="none" stroke="#5fb3d3" stroke-opacity=".45" stroke-width="2" vector-effect="non-scaling-stroke" d="M1440 120 C 1250 210, 1060 250, 860 196 S 500 96, 300 152 S 70 228, 0 182"/></svg></div>
+  </div><button type="button" class="intro-skip">${en?'Skip':'Bỏ qua'}</button>`;
+  const others=[...document.body.children];
+  others.forEach(n=>{n.inert=true;});
+  document.body.prepend(el);
+  root.classList.add('intro-built');
+  let done=false;
+  const t=parseFloat(getComputedStyle(el).getPropertyValue('--t'))||1;
+  const finish=()=>{
+   if(done)return;done=true;
+   const hadFocus=el.contains(document.activeElement);
+   others.forEach(n=>{n.inert=false;});
+   el.remove();clear();release();
+   document.removeEventListener('keydown',onKey);
+   if(hadFocus){const b=document.querySelector('header .brand');b&&b.focus({preventScroll:true});}
+  };
+  const skip=()=>{if(done)return;release();el.classList.add('is-skipping');setTimeout(finish,300);};
+  const onKey=e=>{if(e.key==='Escape')skip();};
+  document.addEventListener('keydown',onKey);
+  el.querySelector('.intro-skip').addEventListener('click',skip);
+  // Reveal the hero copy as the overlay starts to lift, then clean up.
+  setTimeout(release,950*t);
+  el.addEventListener('animationend',e=>{if(e.target===el)finish();});
+  setTimeout(finish,(1500+700)*t);
+ }catch(err){clear();document.querySelectorAll('.intro').forEach(n=>n.remove());[...document.body.children].forEach(n=>{n.inert=false;});}
+})();
+
+
 // Shadow on the pinned header once the page scrolls.
 (()=>{const h=document.querySelector('header');if(!h)return;const f=()=>h.classList.toggle('is-scrolled',scrollY>8);addEventListener('scroll',f,{passive:true});f();})();
 const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#navigation');toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(toggle?.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');nav?.classList.remove('open');toggle.focus();}}});
