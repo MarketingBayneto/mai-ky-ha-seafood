@@ -306,3 +306,27 @@ html.intro-hold .hero.motion-ready .hero-copy>*{animation-play-state:paused}
 @media(max-width:760px){:root{--intro-t:1.667}}
 html.intro-built body>:not(.intro):not(.skip):not(dialog){animation:intro-page-rise calc(.55s*var(--intro-t)) cubic-bezier(.65,0,.35,1) calc(.95s*var(--intro-t)) both}
 @keyframes intro-page-rise{from{transform:translate3d(0,100vh,0)}to{transform:none}}
+/* Logo + company name: grow slightly on hover, logo gets a polished-metal sheen. */
+.logo-shine{position:relative;display:inline-block;flex:0 0 auto;line-height:0;overflow:hidden;border-radius:12px;transition:transform .35s cubic-bezier(.3,1.4,.5,1),box-shadow .35s}
+.footer-logo .logo-shine{border-radius:16px}
+.logo-shine img{transition:filter .35s}
+.logo-shine:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(160deg,#ffffff8c 0%,#ffffff00 38%,#ffffff00 62%,#00000026 100%);opacity:0;transition:opacity .35s}
+.logo-shine:after{content:"";position:absolute;top:-30%;bottom:-30%;left:-80%;width:55%;z-index:2;pointer-events:none;background:linear-gradient(105deg,#fff0 0%,#ffffff33 30%,#ffffffe6 50%,#ffffff33 70%,#fff0 100%);transform:skewX(-20deg);opacity:0}
+.brand span:not(.logo-shine),.footer-brand .brand-name{display:inline-block;transform-origin:left center;transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine{transform:scale(1.08);box-shadow:0 0 0 2px #ffffff80,0 10px 26px #00000073,0 0 22px #9fdcf066}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine img{filter:contrast(1.08) saturate(1.12) brightness(1.04)}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine:before{opacity:1}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine:after{animation:logo-gleam .9s cubic-bezier(.4,0,.2,1) both}
+:is(.brand,.footer-brand):is(:hover,:focus-within) :is(.brand span:not(.logo-shine),.brand-name){transform:scale(1.05)}
+@keyframes logo-gleam{0%{opacity:1;transform:skewX(-20deg) translateX(0)}100%{opacity:1;transform:skewX(-20deg) translateX(400%)}}
+@media(prefers-reduced-motion:reduce){.logo-shine,.brand span,.footer-brand .brand-name{transition:none}.logo-shine:after{animation:none!important}}
+.logo-shine img{box-shadow:none}
+.brand .logo-shine{box-shadow:0 6px 18px #00000040}
+.footer-logo .logo-shine{box-shadow:0 10px 26px #00000055}
+@media(max-width:760px){.brand .logo-shine{border-radius:10px}.footer-logo .logo-shine{border-radius:14px}}
+.logo-shine:before{background:linear-gradient(160deg,#ffffff66 0%,#ffffff00 35%,#ffffff00 85%,#00000012 100%)}
+.brand .logo-shine{transform-origin:left center}
+.footer-logo .logo-shine{transform-origin:left top}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine{box-shadow:0 0 0 2px #fffffff2,0 10px 26px #00000066,0 0 24px #bfe6f5a6}
+:is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine img{filter:contrast(1.12) saturate(1.2) brightness(1.06)}
+header .brand.brand:is(:hover,:focus-within) span:not(.logo-shine):not(.x){transform:translateX(8px) scale(1.05)}
