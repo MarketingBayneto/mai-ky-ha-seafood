@@ -18,6 +18,11 @@ def extract(prefix,slug,first=0,limit=3):
 pdata=[]
 for slug,name,en,prefix,group,idx in products:
  pdata.append(dict(slug=slug,name=name,en=en,group=group,images=extract(prefix,slug,idx)))
+# Extra product photos supplied later (already optimised in dist/assets).
+extra_photos={'ca-bac-ma':range(3,13)}
+for p in pdata:
+ for j in extra_photos.get(p['slug'],[]):
+  if (A/f"{p['slug']}-{j}.webp").exists():p['images'].append(f"/assets/{p['slug']}-{j}.webp")
 for prefix,slug,idx,limit in [('XƯỞNG','xuong',3,4),('HÀNG THÀNH','kho',1,3),('HÀNG CÔNG','dong-hang',8,4),('HỘI CHỢ','hoi-cho',2,5)]:extract(prefix,slug,idx,limit)
 if not (A/'logo.png').exists():Image.open('/workspace/scratch/ce8dae64492a/original_logo/image.png').save(A/'logo.png')
 (R/'products.json').write_text(json.dumps(pdata,ensure_ascii=False,indent=2))

@@ -330,3 +330,5 @@ html.intro-built body>:not(.intro):not(.skip):not(dialog){animation:intro-page-r
 :is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine{box-shadow:0 0 0 2px #fffffff2,0 10px 26px #00000066,0 0 24px #bfe6f5a6}
 :is(.brand,.footer-brand):is(:hover,:focus-within) .logo-shine img{filter:contrast(1.12) saturate(1.2) brightness(1.06)}
 header .brand.brand:is(:hover,:focus-within) span:not(.logo-shine):not(.x){transform:translateX(8px) scale(1.05)}
+/* Product galleries with many photos: three columns on wide screens. */
+@media(min-width:761px){.gallery:has(figure:nth-child(6)){grid-template-columns:repeat(3,1fr)}.gallery:has(figure:nth-child(6)) figure:first-child{grid-column:1/-1}.gallery:has(figure:nth-child(6)) img{height:170px}}
