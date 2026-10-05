@@ -7,7 +7,7 @@ Canonical and hreflang tags keep absolute URLs built from SITE_URL.
 from pathlib import Path
 import posixpath, re
 
-ATTR = re.compile(r'\b(href|src|data-photo)="(/(?!/)[^"]*)"')
+ATTR = re.compile(r'\b(href|src|data-photo|poster)="(/(?!/)[^"]*)"')
 
 def page_url(dist, html_file):
     rel = html_file.parent.relative_to(dist).as_posix()

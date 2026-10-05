@@ -332,3 +332,10 @@ html.intro-built body>:not(.intro):not(.skip):not(dialog){animation:intro-page-r
 header .brand.brand:is(:hover,:focus-within) span:not(.logo-shine):not(.x){transform:translateX(8px) scale(1.05)}
 /* Product galleries with many photos: three columns on wide screens. */
 @media(min-width:761px){.gallery:has(figure:nth-child(6)){grid-template-columns:repeat(3,1fr)}.gallery:has(figure:nth-child(6)) figure:first-child{grid-column:1/-1}.gallery:has(figure:nth-child(6)) img{height:170px}}
+/* Capability page: real processing videos. */
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,300px));gap:24px;justify-content:center;margin-top:36px}
+.video-card{margin:0}
+.video-card video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#061F35;border-radius:12px;box-shadow:0 12px 30px #00000066;outline:2px solid #ffffff1f}
+.video-card figcaption{margin-top:10px;font-size:.9rem;color:var(--muted);text-align:center}
+@media(max-width:760px){.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.video-card figcaption{font-size:.8rem}}
+@media(max-width:420px){.video-grid{grid-template-columns:minmax(0,320px)}}
