@@ -6,6 +6,7 @@ import re
 product_focus={
 'ca-chem':('Cá chẽm trong danh mục MAI KỲ HÀ','Khi hỏi hàng cá chẽm, hãy nêu kích cỡ mong muốn, dạng nguyên con hoặc yêu cầu xử lý, cùng khối lượng và cách đóng gói. Ảnh bên dưới giúp bạn đối chiếu mặt hàng trước khi trao đổi.'),
 'muc-xa-den':('Mực xà đen — hình ảnh và yêu cầu hỏi hàng','Với mực xà đen, cần làm rõ dạng hàng, mức độ xử lý, kích cỡ và quy cách đóng gói. Bạn có thể gửi ảnh tham khảo kèm yêu cầu để hai bên thống nhất đúng sản phẩm.'),
+'ca-ngu-hoa':('Trao đổi nhu cầu cá ngừ hoa','Ghi rõ cá ngừ hoa khi gửi yêu cầu để phân biệt với cá ngừ ồ và cá ngừ vây vàng trong danh mục. Bổ sung kích cỡ, dạng hàng, quy cách đóng gói và khối lượng dự kiến để trao đổi cụ thể.'),
 'ca-ngu-o':('Trao đổi nhu cầu cá ngừ ồ','Hãy ghi rõ cá ngừ ồ khi gửi yêu cầu để phân biệt với các dòng cá ngừ khác trong danh mục. Bổ sung kích cỡ, dạng xử lý, mục đích sử dụng và khối lượng dự kiến.'),
 'ca-chim-den':('Tìm hiểu mặt hàng cá chim đen','Xem ảnh thực tế và mô tả kích cỡ, dạng hàng bạn cần. Khi có yêu cầu riêng về xử lý, phân loại hoặc đóng kiện, hãy đưa vào nội dung hỏi hàng để được trao đổi cụ thể.'),
 'ca-nuc-hgt':('Cá nục gai cắt đầu cho nhu cầu nguyên liệu','Mặt hàng được giới thiệu cho nhu cầu nguyên liệu đóng hộp. Khi hỏi hàng, hãy mô tả yêu cầu xử lý, phân cỡ và quy cách đóng gói; các tiêu chí cụ thể cần được thống nhất theo đơn hàng.'),

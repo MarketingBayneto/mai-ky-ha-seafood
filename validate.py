@@ -17,5 +17,6 @@ class Check(HTMLParser):
 for path in pages:
  c=Check();c.path=path;rel=path.parent.relative_to(D).as_posix();c.url='/' if rel=='.' else '/'+rel+'/';c.feed(path.read_text())
 assert not errors,'\n'.join(errors)
-assert len(pages)==56
+import json
+assert len(pages)==2*(12+len(json.loads((Path(__file__).parent/"products.json").read_text())))
 print(f'Checked {len(pages)} pages: all local links and images resolve; image descriptions present.')

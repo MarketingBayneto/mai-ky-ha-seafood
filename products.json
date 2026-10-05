@@ -41,6 +41,19 @@
     ]
   },
   {
+    "slug": "ca-ngu-hoa",
+    "name": "Cá ngừ hoa",
+    "en": "Eastern Little Tuna",
+    "group": "ngu",
+    "images": [
+      "/assets/ca-ngu-hoa-0.webp",
+      "/assets/ca-ngu-hoa-1.webp",
+      "/assets/ca-ngu-hoa-2.webp",
+      "/assets/ca-ngu-hoa-3.webp",
+      "/assets/ca-ngu-hoa-4.webp"
+    ]
+  },
+  {
     "slug": "ca-chim-den",
     "name": "Cá chim đen",
     "en": "Black Pomfret",

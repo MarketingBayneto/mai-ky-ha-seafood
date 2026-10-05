@@ -4,7 +4,7 @@ import zipfile,io,json,html,re
 from detail_content import enrich
 from finish_content import finish
 R=Path(__file__).parent; D=R/'dist'; A=D/'assets'; U=Path('/workspace/scratch/ce8dae64492a/upload'); A.mkdir(parents=True,exist_ok=True)
-products=[('ca-chem','Cá chẽm','Barramundi','BARAMUNDI','khac',0),('muc-xa-den','Mực xà đen','Black Squid','BLACK SQUID','muc',5),('ca-ngu-o','Cá ngừ ồ','Bullet Tuna','BULLET TUNA','ngu',0),('ca-chim-den','Cá chim đen','Black Pomfret','CÁ BLACK POMFRET','khac',0),('ca-nuc-hgt','Cá nục gai cắt đầu','HGT','CÁ HGT','nuc',0),('ca-liet-chi-vang','Cá liệt chỉ vàng','Striped Pony Fish','CÁ LIỆT','khac',0),('ca-banh-lai-trang','Cá bánh lái trắng','Moon Fish','CÁ MOON','khac',0),('ca-trao-mat-to','Cá tráo mắt to','Bigeye Scad','CÁ TRÁO','nuc',1),('ca-song','Cá sòng','Horse Mackerel','HORSE','nuc',0),('ca-bac-ma','Cá bạc má','Indian Mackerel','INDIAN','nuc',0),('ca-nuc-suon','Cá nục suôn / cá nục dài','Layang Scad','LAYANG','nuc',0),('ca-nuc-duoi-do','Cá nục đuôi đỏ','Redtail Scad','REDTAIL','nuc',0),('ca-nuc-tron','Cá nục tròn / cá nục gai','Round Scad','ROUND','nuc',0),('ca-ro-phi','Cá rô phi','Tilapia','TILAPIA','khac',0),('ca-ngan-duoi-vang','Cá ngân đuôi vàng','Yellow Tail','YELLOW TAIL','khac',0),('ca-ngu-vay-vang','Cá ngừ vây vàng','Yellowfin Tuna','YELLOWDISH','ngu',0)]
+products=[('ca-chem','Cá chẽm','Barramundi','BARAMUNDI','khac',0),('muc-xa-den','Mực xà đen','Black Squid','BLACK SQUID','muc',5),('ca-ngu-o','Cá ngừ ồ','Bullet Tuna','BULLET TUNA','ngu',0),('ca-ngu-hoa','Cá ngừ hoa','Eastern Little Tuna','EASTERN LITTLE TUNA','ngu',0),('ca-chim-den','Cá chim đen','Black Pomfret','CÁ BLACK POMFRET','khac',0),('ca-nuc-hgt','Cá nục gai cắt đầu','HGT','CÁ HGT','nuc',0),('ca-liet-chi-vang','Cá liệt chỉ vàng','Striped Pony Fish','CÁ LIỆT','khac',0),('ca-banh-lai-trang','Cá bánh lái trắng','Moon Fish','CÁ MOON','khac',0),('ca-trao-mat-to','Cá tráo mắt to','Bigeye Scad','CÁ TRÁO','nuc',1),('ca-song','Cá sòng','Horse Mackerel','HORSE','nuc',0),('ca-bac-ma','Cá bạc má','Indian Mackerel','INDIAN','nuc',0),('ca-nuc-suon','Cá nục suôn / cá nục dài','Layang Scad','LAYANG','nuc',0),('ca-nuc-duoi-do','Cá nục đuôi đỏ','Redtail Scad','REDTAIL','nuc',0),('ca-nuc-tron','Cá nục tròn / cá nục gai','Round Scad','ROUND','nuc',0),('ca-ro-phi','Cá rô phi','Tilapia','TILAPIA','khac',0),('ca-ngan-duoi-vang','Cá ngân đuôi vàng','Yellow Tail','YELLOW TAIL','khac',0),('ca-ngu-vay-vang','Cá ngừ vây vàng','Yellowfin Tuna','YELLOWDISH','ngu',0)]
 def extract(prefix,slug,first=0,limit=3):
  existing=[A/f'{slug}-{j}.webp' for j in range(limit)]
  if all(p.exists() for p in existing):return ['/assets/'+p.name for p in existing]
@@ -19,7 +19,7 @@ pdata=[]
 for slug,name,en,prefix,group,idx in products:
  pdata.append(dict(slug=slug,name=name,en=en,group=group,images=extract(prefix,slug,idx)))
 # Extra product photos supplied later (already optimised in dist/assets).
-extra_photos={'ca-bac-ma':[3,4,5,6,8,10,11,12],'ca-ngan-duoi-vang':range(3,22),'muc-xa-den':range(3,11)}
+extra_photos={'ca-bac-ma':[3,4,5,6,8,10,11,12],'ca-ngan-duoi-vang':range(3,22),'muc-xa-den':range(3,11),'ca-ngu-hoa':range(3,5)}
 for p in pdata:
  for j in extra_photos.get(p['slug'],[]):
   if (A/f"{p['slug']}-{j}.webp").exists():p['images'].append(f"/assets/{p['slug']}-{j}.webp")
