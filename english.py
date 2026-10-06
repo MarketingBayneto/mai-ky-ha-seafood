@@ -63,7 +63,7 @@ class EnglishHTML(HTMLParser):
 
 import os
 # Public address of the site, without a trailing slash. Used only for canonical and hreflang tags.
-ORIGIN=os.environ.get('SITE_URL','https://marketingbayneto.github.io/mai-ky-ha-seafood').rstrip('/')
+ORIGIN=os.environ.get('SITE_URL','https://maikyha.com').rstrip('/')
 def language_chrome(html,vi,en,lang):
  links=''.join(f'<link rel="alternate" hreflang="{code}" href="{ORIGIN}{url}">' for code,url in [('vi',vi),('en',en),('x-default',vi)])
  links+=f'<link rel="canonical" href="{ORIGIN}{en if lang=="en" else vi}">'

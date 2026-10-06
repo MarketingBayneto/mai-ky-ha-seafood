@@ -41,7 +41,7 @@ All links inside `dist/` are relative, so the same files work at a domain root, 
 2. In the repository, open **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. The workflow in `.github/workflows/pages.yml` builds the site, runs every check, and publishes `dist/`. The site address appears in the **Actions** run and under **Settings → Pages**.
 
-The workflow sets `SITE_URL` to the GitHub Pages address automatically; it is used only for canonical and language (hreflang) tags. When a custom domain is ready, change `SITE_URL` in the workflow to that domain (for example `https://maikyha.com`) and add the domain under **Settings → Pages**.
+The workflow sets `SITE_URL` to the GitHub Pages address automatically; it is used only for canonical and language (hreflang) tags. The site is served at https://maikyha.com (custom domain set under **Settings → Pages**; DNS at GoDaddy points to GitHub Pages).
 
 The contact form prepares an email using the visitor's email application; it does not submit to a backend. The visitor must review and send the email. A copy-text fallback is included.
 

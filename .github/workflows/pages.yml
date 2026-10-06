@@ -28,7 +28,7 @@ jobs:
       - name: Build and check the site
         env:
           # Public address used for canonical and language tags.
-          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          SITE_URL: https://maikyha.com
         run: |
           python -m pip install -r requirements.txt
           python build.py
@@ -40,6 +40,7 @@ jobs:
           TEST_LANGUAGE=en node tests/inquiry.cjs
           node tests/language-switch.cjs
           touch dist/.nojekyll
+          echo maikyha.com > dist/CNAME
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
