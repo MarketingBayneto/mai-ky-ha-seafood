@@ -104,6 +104,8 @@ make_relative(D)
 # One company name everywhere: MAI KỲ HÀ SEAFOOD.
 for html_file in D.rglob('*.html'):
  html_file.write_text(re.sub(r'MAI KỲ HÀ(?! SEAFOOD)','MAI KỲ HÀ SEAFOOD',html_file.read_text()))
+from seo import build_seo
+build_seo(D)
 # Version CSS/JS links by content so browsers fetch updates right away.
 import hashlib
 for asset in ('style.css','app.js','logo.png','favicon.png','intro-gate.js'):
