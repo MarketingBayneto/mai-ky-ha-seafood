@@ -24,8 +24,10 @@ from html import escape
 from urllib.parse import urlsplit,urlunsplit
 
 ROUTES={'/':'/en/','/gioi-thieu/':'/en/about/','/san-pham/':'/en/products/','/thuong-mai-xnk/':'/en/trading/','/nang-luc/':'/en/capabilities/','/hoat-dong/':'/en/activities/','/hoat-dong/hoi-cho/':'/en/activities/exhibitions/','/kien-thuc/':'/en/resources/','/kien-thuc/hoi-hang/':'/en/resources/seafood-inquiry/','/kien-thuc/quy-cach/':'/en/resources/specifications/','/kien-thuc/dieu-kien-giao-dich/':'/en/resources/trading-terms/','/lien-he/':'/en/contact/'}
+# English addresses stay fixed even when an English product name is refined.
+SLUG_KEEP={'ca-nuc-hgt':'head-cut-scad','ca-ngan-duoi-vang':'yellow-tail','ca-banh-lai-trang':'moon-fish','ca-liet-chi-vang':'striped-pony-fish'}
 for p in PRODUCTS:
- slug='head-cut-scad' if p['slug']=='ca-nuc-hgt' else re.sub(r'[^a-z0-9]+','-',p['en'].lower()).strip('-')
+ slug=SLUG_KEEP.get(p['slug']) or re.sub(r'[^a-z0-9]+','-',p['en'].lower()).strip('-')
  ROUTES['/san-pham/'+p['slug']+'/']='/en/products/'+slug+'/'
 TRANSLATIONS['Sản phẩm']='Products'
 

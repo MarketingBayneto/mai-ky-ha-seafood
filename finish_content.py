@@ -20,7 +20,7 @@ product_focus={
 'ca-nuc-tron':('Cá nục tròn / cá nục gai','Mặt hàng được giới thiệu dưới tên cá nục tròn / cá nục gai. Nếu cần dạng cắt đầu cho nhu cầu nguyên liệu, hãy nêu rõ yêu cầu xử lý hoặc tham khảo mặt hàng HGT trong danh mục.'),
 'ca-ro-phi':('Cá rô phi — thông tin cho đơn hàng','Nêu rõ dạng nguyên con hoặc yêu cầu xử lý, kích cỡ và mục đích sử dụng. MAI KỲ HÀ tiếp nhận thông tin để trao đổi khả năng đáp ứng, đóng gói và lịch giao theo nhu cầu.'),
 'ca-ngan-duoi-vang':('Trao đổi mặt hàng cá ngân đuôi vàng','Tham khảo ảnh thực tế và gửi yêu cầu theo tên mặt hàng trong danh mục. Hãy ghi rõ đơn vị kích cỡ, khối lượng, đóng gói và điểm giao dự kiến để thuận tiện đối chiếu.'),
-'ca-ngu-vay-vang':('Cá ngừ vây vàng — xác định rõ nhu cầu','Ghi rõ cá ngừ vây vàng để phân biệt với cá ngừ ồ trong danh mục. Dạng xử lý, kích cỡ, yêu cầu chất lượng và quy cách đóng gói được trao đổi theo mục đích sử dụng của đối tác.')}
+'ca-ngu-vay-vang':('Cá ngừ vây vàng — xác định rõ nhu cầu','Ghi rõ cá ngừ vây vàng để phân biệt với cá ngừ ồ và cá ngừ hoa trong danh mục. Dạng xử lý, kích cỡ, yêu cầu chất lượng và quy cách đóng gói được trao đổi theo mục đích sử dụng của đối tác.')}
 
 def finish(path,title,body,products,icon):
  if path=='/':return body

@@ -78,7 +78,7 @@
   {
     "slug": "ca-liet-chi-vang",
     "name": "Cá liệt chỉ vàng",
-    "en": "Striped Pony Fish",
+    "en": "Striped Ponyfish",
     "group": "khac",
     "images": [
       "/assets/ca-liet-chi-vang-0.webp",
@@ -89,7 +89,7 @@
   {
     "slug": "ca-banh-lai-trang",
     "name": "Cá bánh lái trắng",
-    "en": "Moon Fish",
+    "en": "Moonfish",
     "group": "khac",
     "images": [
       "/assets/ca-banh-lai-trang-0.webp",
@@ -185,7 +185,7 @@
   {
     "slug": "ca-ngan-duoi-vang",
     "name": "Cá ngân đuôi vàng",
-    "en": "Yellow Tail",
+    "en": "Yellowtail Scad",
     "group": "khac",
     "images": [
       "/assets/ca-ngan-duoi-vang-0.webp",

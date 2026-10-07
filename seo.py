@@ -40,7 +40,7 @@ def page_description(text):
     lead = text_of(first(r'<p class="lead">(.*?)</p>', main))
     if not lead:
         return h1
-    return lead if len(lead) >= 110 else f'{h1}. {lead}'
+    return lead if len(lead) >= 110 else (f'{h1} {lead}' if h1.endswith(('?', '!', '.')) else f'{h1}. {lead}')
 
 
 def share_image(dist, text):
