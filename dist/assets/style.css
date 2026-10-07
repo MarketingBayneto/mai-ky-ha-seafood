@@ -344,3 +344,6 @@ header .brand.brand:is(:hover,:focus-within) span:not(.logo-shine):not(.x){trans
 @media(max-width:760px){form .two{gap:0}}
 /* 404 page buttons */
 .not-found-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.button.secondary.light{color:white;border-color:#ffffffb0}
+
+/* Keep the red tick a perfect circle when the card stacks on phones. */
+.real-note-icon{flex:none;width:52px;height:52px;aspect-ratio:1;line-height:1}
