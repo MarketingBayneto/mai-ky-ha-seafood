@@ -51,7 +51,7 @@ document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListen
 const dialog=document.querySelector('.lightbox');
 const photos=[...document.querySelectorAll('[data-photo]')];let galleryIndex=0;
 function displayPhoto(index){if(!photos.length||!dialog)return;galleryIndex=(index+photos.length)%photos.length;const b=photos[galleryIndex];dialog.querySelector('img').src=b.dataset.photo;dialog.querySelector('img').alt=b.dataset.caption;dialog.querySelector('p').textContent=b.dataset.caption;dialog.querySelector('.gallery-position').textContent=`${galleryIndex+1} / ${photos.length}`;dialog.querySelector('.gallery-controls').hidden=photos.length<2;}
-photos.forEach((b,i)=>b.addEventListener('click',()=>{displayPhoto(i);dialog.showModal();}));
+photos.forEach((b,i)=>b.addEventListener('click',()=>{if(!dialog||typeof dialog.showModal!=='function'){window.open(b.dataset.photo,'_blank','noopener');return;}displayPhoto(i);dialog.showModal();}));
 dialog?.querySelector('.close').addEventListener('click',()=>dialog.close());
 dialog?.querySelector('[data-gallery-prev]').addEventListener('click',()=>displayPhoto(galleryIndex-1));
 dialog?.querySelector('[data-gallery-next]').addEventListener('click',()=>displayPhoto(galleryIndex+1));

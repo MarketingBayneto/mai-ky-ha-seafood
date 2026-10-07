@@ -6,6 +6,9 @@ class Check(HTMLParser):
  def handle_starttag(self,tag,attrs):
   a=dict(attrs)
   if tag=='img' and a.get('src') and not a.get('alt'):errors.append(f'{self.path}: missing alt')
+  for part in a.get('srcset','').split(','):
+   u=part.strip().split(' ')[0]
+   if u and not (D/urlparse(urljoin(self.url,u)).path.lstrip('/')).exists():errors.append(f'{self.path}: missing srcset {u}')
   for k in ('src','href'):
    u=a.get(k,'');q=urlparse(u)
    if not u or q.scheme or u.startswith('#'):continue

@@ -1,6 +1,8 @@
 /* Decides, before first paint, whether the homepage "wave opening" intro plays.
    Plays once per tab session, only on the homepage, never with reduced motion.
    Any failure leaves the page untouched; a timer clears the cover regardless. */
+/* Mark scripts as available before first paint so the phone menu starts folded (no layout jump). */
+document.documentElement.classList.add('js');
 (function(){
  try{
   var d=document.documentElement;

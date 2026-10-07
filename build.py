@@ -73,7 +73,7 @@ body+=f'''<section class="section capability sea"><div class="wrap split"><div><
 page('/','Thương mại và xuất nhập khẩu thủy sản',body)
 page('/gioi-thieu/','Giới thiệu',intro('VỀ CHÚNG TÔI','MAI KỲ HÀ','Kết nối đại dương, phủ sóng toàn cầu — định hướng của MAI KỲ HÀ trong thương mại và xuất nhập khẩu thủy sản từ Đà Nẵng.')+'''<section class="section"><div class="wrap split"><div><h2>Trao đổi rõ ràng,<br>hợp tác theo nhu cầu thực tế</h2><p>MAI KỲ HÀ tiếp nhận nhu cầu mua bán thủy sản theo từng mặt hàng, quy cách, khối lượng và điều kiện giao dịch. Chúng tôi làm rõ những thông tin cần thiết để trao đổi phương án phù hợp với từng đối tác.</p><p>Danh mục gồm các dòng cá ngừ, cá nục, cá bạc má, cá sòng, các loại cá khác và mực xà đen.</p><a class="text-link" href="/san-pham/">Tìm hiểu danh mục sản phẩm →</a></div>'''+figure('/assets/hoi-cho-4.webp','Hoạt động kết nối tại hội chợ')+'''</div></section><section class="section pale"><div class="wrap"><h2>Cách chúng tôi làm việc</h2><div class="three"><article><h3>Hiểu đúng nhu cầu</h3><p>Làm rõ mặt hàng, quy cách và các yêu cầu quan trọng trước khi trao đổi phương án.</p></article><article><h3>Thống nhất điều kiện</h3><p>Trao đổi thông tin sản phẩm, khối lượng, đóng gói và điều kiện giao nhận.</p></article><article><h3>Phối hợp thực hiện</h3><p>Giữ đầu mối trao đổi trong quá trình triển khai giao dịch.</p></article></div></div></section>'''+cta())
 filters='<div class="filters" aria-label="Lọc sản phẩm">'+''.join(f'<button data-filter="{k}" aria-pressed="{str(k=="all").lower()}">{v}</button>' for k,v in [('all','Tất cả'),('ngu','Cá ngừ'),('nuc','Cá nục, bạc má & cá sòng'),('khac','Các loại cá khác'),('muc','Mực')])+'</div>'
-page('/san-pham/','Sản phẩm',intro('DANH MỤC','Các dòng sản phẩm – hình ảnh thực tế','Lựa chọn mặt hàng và gửi thông tin để xác nhận quy cách, khối lượng cùng khả năng cung ứng tại thời điểm giao dịch.')+'<section class="section"><div class="wrap">'+filters+'<div class="product-grid">'+''.join(map(card,pdata))+'</div></div></section>'+cta())
+page('/san-pham/','Sản phẩm',intro('DANH MỤC','Các dòng sản phẩm – hình ảnh thực tế','Lựa chọn mặt hàng và gửi thông tin để xác nhận quy cách, khối lượng cùng khả năng cung ứng tại thời điểm giao dịch.')+'<section class="section"><div class="wrap"><h2 class="sr-only">Danh mục sản phẩm</h2>'+filters+'<div class="product-grid">'+''.join(map(card,pdata))+'</div></div></section>'+cta())
 for p in pdata:
  name=p['name']; slug=p['slug']; special='Sản phẩm cá nục gai cắt đầu được giới thiệu cho nhu cầu nguyên liệu đóng hộp. Quy cách xử lý chi tiết cần được thống nhất theo đơn hàng.' if slug=='ca-nuc-hgt' else f'MAI KỲ HÀ tiếp nhận yêu cầu giao dịch {name.lower()} theo quy cách, khối lượng và điều kiện cụ thể.'
  rows=''.join(f'<tr><th scope="row">{a}</th><td>{b}</td></tr>' for a,b in [('Sản phẩm',name),('Dạng hàng & xử lý','Trao đổi theo yêu cầu đơn hàng'),('Kích cỡ & đóng gói','Xác nhận khi hỏi hàng'),('Khối lượng','Theo nhu cầu và khả năng cung ứng'),('Nguồn gốc & chứng từ','Xác nhận theo lô hàng'),('Điều kiện bảo quản','Trao đổi theo dạng sản phẩm')])
@@ -106,6 +106,8 @@ for html_file in D.rglob('*.html'):
  html_file.write_text(re.sub(r'MAI KỲ HÀ(?! SEAFOOD)','MAI KỲ HÀ SEAFOOD',html_file.read_text()))
 from seo import build_seo
 build_seo(D)
+from responsive import add_srcset
+add_srcset(D)
 # Version CSS/JS links by content so browsers fetch updates right away.
 import hashlib
 for asset in ('style.css','app.js','logo.png','favicon.png','intro-gate.js'):
