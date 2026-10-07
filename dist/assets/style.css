@@ -347,3 +347,11 @@ header .brand.brand:is(:hover,:focus-within) span:not(.logo-shine):not(.x){trans
 
 /* Keep the red tick a perfect circle when the card stacks on phones. */
 .real-note-icon{flex:none;width:52px;height:52px;aspect-ratio:1;line-height:1}
+
+/* Readable red on the dark sea background (contrast ≥ 4.2:1). Light cards keep the deeper brand red. */
+:root{--red-on-dark:#ff4757}
+#navigation a[aria-current],.breadcrumbs a,main .eyebrow,main .text-link,main .detail-index,main .process-line,main .mosaic-item b,main .product-card span,main .card-media+div span,main .steps li:before{color:var(--red-on-dark)}
+main .process-line{border-top-color:var(--red)}
+main .panel .eyebrow,main .panel .text-link,main .article-contents .eyebrow,main .real-note .eyebrow,main form .eyebrow{color:var(--red)}
+main .panel .text-link{color:#b3172a}
+main>section.section:not(.sea) .eyebrow,main>article.section .eyebrow,main .capability .eyebrow,main .page-intro:not(.illustrated-intro) .eyebrow,main .cta .eyebrow,main>section.section:not(.sea) .text-link:not(.light),main>article.section .text-link{color:var(--red-on-dark)}
