@@ -357,3 +357,5 @@ main .panel .text-link{color:#b3172a}
 main>section.section:not(.sea) .eyebrow,main>article.section .eyebrow,main .capability .eyebrow,main .page-intro:not(.illustrated-intro) .eyebrow,main .cta .eyebrow,main>section.section:not(.sea) .text-link:not(.light),main>article.section .text-link{color:var(--red-on-dark)}
 /* Text for screen readers only */
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Spam trap: hidden from people, filled in only by bots */
+.hp-field{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}

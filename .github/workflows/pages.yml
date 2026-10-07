@@ -39,6 +39,7 @@ jobs:
           node tests/inquiry.cjs
           TEST_LANGUAGE=en node tests/inquiry.cjs
           node tests/language-switch.cjs
+          node tests/inquiry-send.cjs
           touch dist/.nojekyll
           echo maikyha.com > dist/CNAME
       - uses: actions/configure-pages@v5

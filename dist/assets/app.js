@@ -67,11 +67,13 @@ if(form){
  const isEnglish=document.documentElement.lang==='en';
  const message=isEnglish?{
   pending:'To be discussed',subject:'Seafood inquiry — ',
+  sending:'Sending your inquiry…',sent:'Thank you. Your inquiry has been sent to MAI KỲ HÀ SEAFOOD. We will reply soon.',
   prepared:'Your email draft is ready. Review it and press Send in your email application. If the application does not open, copy the inquiry and email it to maikyhaseafood01@gmail.com.',
   copied:'Copied. Paste your inquiry into an email to maikyhaseafood01@gmail.com.',
   manual:'Select and copy the text below, then email it to maikyhaseafood01@gmail.com.'
  }:{
   pending:'Trao đổi thêm',subject:'Yêu cầu thủy sản — ',
+  sending:'Đang gửi yêu cầu…',sent:'Cảm ơn bạn. Yêu cầu đã được gửi đến MAI KỲ HÀ SEAFOOD, chúng tôi sẽ phản hồi sớm.',
   prepared:'Email đã được chuẩn bị. Vui lòng kiểm tra và nhấn Gửi trong ứng dụng email. Nếu ứng dụng không mở, hãy sao chép nội dung và gửi đến maikyhaseafood01@gmail.com.',
   copied:'Đã sao chép. Bạn có thể dán nội dung vào email gửi đến maikyhaseafood01@gmail.com.',
   manual:'Chọn và sao chép nội dung bên dưới để gửi qua email.'
@@ -91,10 +93,23 @@ if(form){
   if(isEnglish)return `Dear MAI KỲ HÀ SEAFOOD,\n\nInquiry type: ${selected('need')}\nContact name: ${f.get('name')}\nCompany: ${f.get('company')}\nEmail / phone: ${f.get('contact')}\nProduct: ${selected('product')}\nQuantity: ${f.get('quantity')||message.pending}\nDestination: ${f.get('destination')||message.pending}\n\nRequirements:\n${f.get('message')}\n\nKind regards.`;
   return `Kính gửi MAI KỲ HÀ SEAFOOD,\n\nNhu cầu: ${selected('need')}\nNgười liên hệ: ${f.get('name')}\nDoanh nghiệp: ${f.get('company')}\nEmail/Điện thoại: ${f.get('contact')}\nSản phẩm: ${selected('product')}\nKhối lượng: ${f.get('quantity')||message.pending}\nĐiểm giao: ${f.get('destination')||message.pending}\n\nNội dung yêu cầu:\n${f.get('message')}\n\nTrân trọng.`;
  }
- form.addEventListener('submit',e=>{
-  e.preventDefault();if(!validateInquiry())return;
+ const openEmail=()=>{
   window.location.href='mailto:maikyhaseafood01@gmail.com?subject='+encodeURIComponent(message.subject+form.elements.company.value)+'&body='+encodeURIComponent(content());
   status.textContent=message.prepared;
+ };
+ // With an endpoint the inquiry goes straight to the company's Google Sheet; otherwise (or if sending fails) the email app opens.
+ form.addEventListener('submit',async e=>{
+  e.preventDefault();if(!validateInquiry())return;
+  const endpoint=form.dataset&&form.dataset.endpoint;
+  if(!endpoint||typeof fetch!=='function'){openEmail();return;}
+  const button=form.querySelector('button[type="submit"]');if(button)button.disabled=true;
+  status.textContent=message.sending;
+  const f=new FormData(form),data=new URLSearchParams(),selected=n=>form.elements[n].selectedOptions[0].textContent;
+  for(const k of ['name','company','contact','quantity','destination','message','website'])data.append(k,f.get(k)||'');
+  data.append('need',selected('need'));data.append('product',selected('product'));data.append('lang',isEnglish?'en':'vi');data.append('page',location.href);
+  try{await fetch(endpoint,{method:'POST',mode:'no-cors',body:data});status.textContent=message.sent;form.reset();}
+  catch{openEmail();}
+  finally{if(button)button.disabled=false;}
  });
  document.querySelector('#copy-request').addEventListener('click',async()=>{
   if(!validateInquiry())return;const text=content();
