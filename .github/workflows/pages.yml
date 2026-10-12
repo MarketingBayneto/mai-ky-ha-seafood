@@ -56,3 +56,12 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-search-engines:
+    # Tells Bing and other IndexNow search engines about every page after each deploy.
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/indexnow.py
