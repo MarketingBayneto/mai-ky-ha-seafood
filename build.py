@@ -19,7 +19,7 @@ pdata=[]
 for slug,name,en,prefix,group,idx in products:
  pdata.append(dict(slug=slug,name=name,en=en,group=group,images=extract(prefix,slug,idx)))
 # Extra product photos supplied later (already optimised in dist/assets).
-extra_photos={'ca-bac-ma':[3,4,5,6,8,10,11,12],'ca-ngan-duoi-vang':range(3,22),'muc-xa-den':range(3,17),'ca-ngu-hoa':range(3,5),'ca-ngu-o':range(3,18)}
+extra_photos={'ca-bac-ma':[3,4,5,6,8,10,11,12],'ca-ngan-duoi-vang':range(3,22),'muc-xa-den':range(3,17),'ca-nuc-suon':range(3,6),'ca-ngu-hoa':range(3,5),'ca-ngu-o':range(3,18)}
 for p in pdata:
  for j in extra_photos.get(p['slug'],[]):
   if (A/f"{p['slug']}-{j}.webp").exists():p['images'].append(f"/assets/{p['slug']}-{j}.webp")
