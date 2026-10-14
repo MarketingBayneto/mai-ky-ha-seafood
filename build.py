@@ -23,6 +23,11 @@ extra_photos={'ca-bac-ma':[3,4,5,6,8,10,11,12],'ca-ngan-duoi-vang':range(3,22),'
 for p in pdata:
  for j in extra_photos.get(p['slug'],[]):
   if (A/f"{p['slug']}-{j}.webp").exists():p['images'].append(f"/assets/{p['slug']}-{j}.webp")
+# Lead photo chosen by the client for a product (moved to the front of its gallery).
+lead_photo={'ca-chem':'/assets/ca-chem-2.webp'}
+for p in pdata:
+ if p['slug'] in lead_photo and lead_photo[p['slug']] in p['images']:
+  p['images'].remove(lead_photo[p['slug']]);p['images'].insert(0,lead_photo[p['slug']])
 for prefix,slug,idx,limit in [('XƯỞNG','xuong',3,4),('HÀNG THÀNH','kho',1,3),('HÀNG CÔNG','dong-hang',8,4),('HỘI CHỢ','hoi-cho',2,5)]:extract(prefix,slug,idx,limit)
 if not (A/'logo.png').exists():Image.open('/workspace/scratch/ce8dae64492a/original_logo/image.png').save(A/'logo.png')
 (R/'products.json').write_text(json.dumps(pdata,ensure_ascii=False,indent=2))
